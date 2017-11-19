@@ -70,6 +70,15 @@ module "pagerduty_service_crit" {
   }
 }
 
+# service integration crit
+module "pagerduty_service_integration_crit" {
+  source = "modules/service_integration_mackerel"
+
+  pagerduty_service_integration_variables {
+    service = "${module.pagerduty_service_crit.service_id}"
+  }
+}
+
 # =======================================================
 
 # warn ==================================================
@@ -112,6 +121,15 @@ module "pagerduty_service_warn" {
   }
 }
 
+# service integration warn
+module "pagerduty_service_integration_warn" {
+  source = "modules/service_integration_mackerel"
+
+  pagerduty_service_integration_variables {
+    service = "${module.pagerduty_service_warn.service_id}"
+  }
+}
+
 # =======================================================
 
 # notice ================================================
@@ -151,6 +169,15 @@ module "pagerduty_service_notice" {
     escalation_policy       = "${module.pagerduty_escalation_policy_notice.escalation_policy_id}"
     auto_resolve_timeout    = "${var.pagerduty_service_notice_setting["auto_resolve_timeout"]}"
     acknowledgement_timeout = "${var.pagerduty_service_notice_setting["acknowledgement_timeout"]}"
+  }
+}
+
+# service integration notice
+module "pagerduty_service_integration_notice" {
+  source = "modules/service_integration_mackerel"
+
+  pagerduty_service_integration_variables {
+    service = "${module.pagerduty_service_notice.service_id}"
   }
 }
 

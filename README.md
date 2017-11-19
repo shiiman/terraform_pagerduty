@@ -24,6 +24,8 @@ terraform version: 0.11.0
 │   │   └── escalation_policy.tf
 │   ├── service
 │   │   └── service.tf
+│   ├── service_integration_mackerel
+│   │   └── service_integration_mackerel.tf
 │   ├── team
 │   │   └── team.tf
 │   └── user

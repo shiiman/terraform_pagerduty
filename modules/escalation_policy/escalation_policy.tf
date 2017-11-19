@@ -25,7 +25,7 @@ resource "pagerduty_escalation_policy" "escalation_policy" {
     escalation_delay_in_minutes = "${var.pagerduty_escalation_policy_variables["escalation_delay_in_minutes"]}"
 
     target {
-      type = "user"
+      type = "user_reference"
       id   = "${var.pagerduty_escalation_policy_variables["target_user_id"]}"
     }
   }

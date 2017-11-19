@@ -18,6 +18,11 @@ resource "pagerduty_service" "service" {
   escalation_policy       = "${var.pagerduty_service_variables["escalation_policy"]}"
   auto_resolve_timeout    = "${var.pagerduty_service_variables["auto_resolve_timeout"]}"
   acknowledgement_timeout = "${var.pagerduty_service_variables["acknowledgement_timeout"]}"
+
+  incident_urgency_rule {
+    type    = "constant"
+    urgency = "high"
+  }
 }
 
 output "service_id" {
