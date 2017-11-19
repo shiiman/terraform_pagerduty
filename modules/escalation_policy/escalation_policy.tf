@@ -19,7 +19,7 @@ variable "teams" {
  */
 resource "pagerduty_escalation_policy" "escalation_policy" {
   name  = "${var.pagerduty_escalation_policy_variables["name"]}"
-  teams = "${var.teams}"
+  teams = ["${var.teams}"]
 
   rule {
     escalation_delay_in_minutes = "${var.pagerduty_escalation_policy_variables["escalation_delay_in_minutes"]}"

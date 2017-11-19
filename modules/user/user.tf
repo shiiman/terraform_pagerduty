@@ -21,7 +21,7 @@ resource "pagerduty_user" "user" {
   name  = "${var.pagerduty_user_variables["name"]}"
   email = "${var.pagerduty_user_variables["email"]}"
   role  = "${var.pagerduty_user_variables["role"]}"
-  teams = "${var.teams}"
+  teams = ["${var.teams}"]
 }
 
 output "user_id" {
